@@ -20,3 +20,19 @@ class Comida(models.Model):
     preco = models.FloatField(max_length=200)
 
 
+class Pedir(models.Model):
+    cpf = models.AutoField(primary_key=True) 
+    numero = models.AutoField(primary_key=True)
+
+class Comprar(models.Model):
+    cpf = models.AutoField(primary_key=True)
+    cnpj = models.AutoField(primary_key=True)
+
+class Trabalha(models.Model):
+    cnpj = models.AutoField(primary_key=True)
+    placa = models.AutoField(primary_key=True)
+
+class Entrega(models.Model):
+     numero = models.AutoField(primary_key=True)
+     placa = models.AutoField(primary_key=True)
+
