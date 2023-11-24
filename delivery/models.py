@@ -21,18 +21,19 @@ class Comida(models.Model):
 
 
 class Pedir(models.Model):
-    cpf = models.AutoField(primary_key=True) 
-    numero = models.AutoField(primary_key=True)
+    cpf = models.ForeignKey() 
+    numero = models.ForeignKey()
+    hora = models.DateTimeField(default=timezone.now)
 
 class Comprar(models.Model):
-    cpf = models.AutoField(primary_key=True)
-    cnpj = models.AutoField(primary_key=True)
+    cpf = models.ForeignKey()
+    cnpj = models.ForeignKey()
 
 class Trabalha(models.Model):
-    cnpj = models.AutoField(primary_key=True)
-    placa = models.AutoField(primary_key=True)
+    cnpj = models.ForeignKey()
+    placa = models.ForeignKey()
 
 class Entrega(models.Model):
-     numero = models.AutoField(primary_key=True)
-     placa = models.AutoField(primary_key=True)
+     numero = models.ForeignKey()
+     placa = models.ForeignKey()
 
