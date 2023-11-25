@@ -21,19 +21,19 @@ class Comida(models.Model):
 
 
 class Pedir(models.Model):
-    cpf = models.ForeignKey() 
-    numero = models.ForeignKey()
+    cpf = models.ForeignKey(Cliente, on_delete=models.CASCADE) 
+    numero = models.ForeignKey(Comida, on_delete=models.CASCADE)
     hora = models.DateTimeField(default=timezone.now)
 
 class Comprar(models.Model):
-    cpf = models.ForeignKey()
-    cnpj = models.ForeignKey()
+    cpf = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cnpj = models.ForeignKey(Restaurante, on_delete=models.CASCADE)
 
 class Trabalha(models.Model):
-    cnpj = models.ForeignKey()
-    placa = models.ForeignKey()
+    cnpj = models.ForeignKey(Restaurante, on_delete=models.CASCADE)
+    placa = models.ForeignKey(Motoboy, on_delete=models.CASCADE)
 
 class Entrega(models.Model):
-     numero = models.ForeignKey()
-     placa = models.ForeignKey()
+     numero = models.ForeignKey(Comida, on_delete=models.CASCADE)
+     placa = models.ForeignKey(Motoboy, on_delete=models.CASCADE)
 
