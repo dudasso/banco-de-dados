@@ -1,8 +1,11 @@
 {% extends 'delivery/base.html' %}
 
 {% block content %}
-    {% for restaurante in restaurantes %}
-        <h2>{{ restaurante.nomerestaurante }}</h2>
-        {# TODO adicionar outros campos#}
-    {% endfor %}
+    <h2>Restaurantes</h2>
+    <ul>
+        {% for restaurante in restaurantes %}
+            <li>{{ restaurante.nomerestaurante }}</li>
+            {# TODO adicionar outros campos#}
+        {% endfor %}
+    </ul>
 {% endblock %}
