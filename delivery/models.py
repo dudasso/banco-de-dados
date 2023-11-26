@@ -16,6 +16,7 @@ class Restaurante(models.Model):
 
 class Comida(models.Model):
     numero = models.AutoField(primary_key=True)
+    cnpj = models.ForeignKey(Restaurante, on_delete=models.CASCADE, default='', related_name='comidas')
     nomecomida = models.CharField(max_length=200)
     preco = models.FloatField(max_length=200)
 

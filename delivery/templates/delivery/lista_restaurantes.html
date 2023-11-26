@@ -2,10 +2,9 @@
 
 {% block content %}
     <h2>Restaurantes</h2>
-    <ul>
+    <section>
         {% for restaurante in restaurantes %}
-            <li>{{ restaurante.nomerestaurante }}</li>
-            {# TODO adicionar outros campos#}
+            <h3><a href="{% url 'detalhes_restaurante' pk=restaurante.pk %}">{{ restaurante.nomerestaurante }}</a></h3>
         {% endfor %}
-    </ul>
+    </section>
 {% endblock %}
