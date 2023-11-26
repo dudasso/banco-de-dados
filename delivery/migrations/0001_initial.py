@@ -66,7 +66,7 @@ class Migration(migrations.Migration):
                 ('id_pedido', models.AutoField(default=0, primary_key=True, serialize=False)),
                 ('hora', models.DateTimeField(default=django.utils.timezone.now)),
                 ('cliente', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='delivery.cliente')),
-                ('comida', models.ManyToManyField(to='delivery.Comida')),
+                ('comida', models.ManyToManyField(to='delivery.comida')),
             ],
         ),
         migrations.CreateModel(
