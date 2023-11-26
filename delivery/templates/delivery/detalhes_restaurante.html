@@ -13,7 +13,7 @@
     <h3>Motoboys do {{ restaurante.nome_restaurante }}:</h3>
     <section>
         {% for motoboy in motoboys %}
-            <h4>{{ motoboy.nome_motoboy }}</h4>
+            <h4><a class="text-restaurant" href="{% url 'detalhes_motoboy' pk=motoboy.pk %}">{{ motoboy.nome_motoboy }}</a></h4>
             <p>Placa: {{ motoboy.placa }}</p>
         {% endfor %}
     </section>

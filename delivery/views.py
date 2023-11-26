@@ -25,3 +25,12 @@ class CadastraCliente(CreateView):
     template_name = 'delivery/cadastro_clientes.html'
     fields = ('nome_cliente', 'cpf', 'endereco')
     success_url = reverse_lazy('lista_restaurantes')
+    
+def detalhes_motoboy(request, pk):
+    motoboy = get_object_or_404(Motoboy, pk=pk)
+    restaurantes = motoboy.restaurante_set.all()
+    context = {
+        'motoboy': motoboy,
+        'restaurantes': restaurantes,
+    }
+    return render(request, 'delivery/detalhes_motoboy.html', context)
