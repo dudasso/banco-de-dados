@@ -60,3 +60,7 @@ def entrega(request, id_pedido):
         'comidas': comidas,
     }
     return render(request, 'delivery/entrega.html', context)
+
+def lista_motoboys(request):
+    motoboys = Motoboy.objects.all()
+    return render(request, 'delivery/lista_motoboys.html', {'motoboys': motoboys})

@@ -1,0 +1,10 @@
+{% extends 'delivery/base.html' %}
+
+{% block content %}
+    <section class="list-restaurant">
+        <h2>Motoboys</h2><br/>
+        {% for motoboy in motoboys %}
+            <h3><a class="text-restaurant" href="{% url 'detalhes_motoboy' pk=motoboy.pk %}">{{ motoboy.nome_motoboy }}</a></h3>
+        {% endfor %}
+    </section>
+{% endblock %}
