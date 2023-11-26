@@ -1,0 +1,14 @@
+{% extends 'delivery/base.html' %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <br />
+
+    {{ form }}
+
+    <br />
+    <br />
+
+    <button type="submit">Enviar</button>
+</form>
+{% endblock %}

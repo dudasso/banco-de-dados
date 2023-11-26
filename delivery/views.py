@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
 
 from delivery.models import *
@@ -34,3 +34,20 @@ def detalhes_motoboy(request, pk):
         'restaurantes': restaurantes,
     }
     return render(request, 'delivery/detalhes_motoboy.html', context)
+
+def criar_entrega(request, id_pedido):
+    pedido = get_object_or_404(Pedir, id_pedido=id_pedido)
+    motoboy = Motoboy.objects.order_by('?').first()
+    entrega = Entrega.objects.create(id_pedido=pedido, motoboy=motoboy)
+    return entrega
+
+class PedirComida(CreateView):
+    model = Pedir
+    template_name = 'delivery/pedir_comida.html'
+    fields = ('cliente', 'comidas')
+    def get_success_url(self):
+        return reverse_lazy('entrega', kwargs={'id_pedido': self.object.id_pedido})
+    
+def entrega(request, id_pedido):
+    entrega = criar_entrega(request=request, id_pedido=id_pedido)
+    return render(request, 'delivery/entrega.html', {'entrega': entrega})

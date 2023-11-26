@@ -34,9 +34,9 @@ class Comida(models.Model):
         return self.nome_comida
 
 class Pedir(models.Model):
-    id_pedido = models.AutoField(primary_key=True, default=0)
+    id_pedido = models.AutoField(primary_key=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE) 
-    comida = models.ManyToManyField(Comida)
+    comidas = models.ManyToManyField(Comida)
     hora = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
