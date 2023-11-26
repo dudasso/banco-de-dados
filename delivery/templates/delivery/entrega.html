@@ -1,7 +1,14 @@
 {% extends 'delivery/base.html' %}
 
 {% block content %}
-    <h2 class="list-restaurant"> {{ entrega }} </h2><br>
+    <h2 class="list-restaurant">{{ entrega.id_pedido }}</h2>
+    <h4 class="text-restaurant">Cliente - {{ pedido.cliente }}</h4><br>
+    <p>Comidas:</p><br>
+    {% for comida in comidas %}
+        <p>{{ comida.nome_comida }} - {{ comida.restaurante }}</p>
+    {% endfor %}
+    <h4><a class="text-restaurant" href="{% url 'detalhes_motoboy' pk=motoboy.pk %}">Entregador - {{ motoboy.nome_motoboy }}</a></h4>
+    <p>Placa: {{ motoboy.placa}}</p><br>
     <p>Seu pedido chega em um instante.</p><br>
 
     <h3>Obrigado pela preferência!</h3>

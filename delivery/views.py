@@ -50,4 +50,13 @@ class PedirComida(CreateView):
     
 def entrega(request, id_pedido):
     entrega = criar_entrega(request=request, id_pedido=id_pedido)
-    return render(request, 'delivery/entrega.html', {'entrega': entrega})
+    motoboy = entrega.motoboy
+    pedido = entrega.id_pedido
+    comidas = pedido.comidas.all()
+    context = {
+        'entrega': entrega,
+        'motoboy': motoboy,
+        'pedido': pedido,
+        'comidas': comidas,
+    }
+    return render(request, 'delivery/entrega.html', context)
