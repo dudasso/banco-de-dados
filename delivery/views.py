@@ -12,9 +12,11 @@ def lista_restaurantes(request):
 def detalhes_restaurante(request, pk):
     restaurante = get_object_or_404(Restaurante, pk=pk)
     comidas = restaurante.comidas.all()
+    motoboys = restaurante.motoboys.all()
     context = {
         'restaurante': restaurante,
-        'comidas': comidas
+        'comidas': comidas,
+        'motoboys': motoboys,
     }
     return render(request, 'delivery/detalhes_restaurante.html', context)
 

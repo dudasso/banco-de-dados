@@ -19,6 +19,7 @@ class Motoboy(models.Model):
 class Restaurante(models.Model):
     cnpj = models.AutoField(primary_key=True)
     nome_restaurante = models.CharField(max_length=200)
+    motoboys = models.ManyToManyField(Motoboy, through='Trabalha')
     
     def __str__(self):
         return self.nome_restaurante
@@ -42,11 +43,13 @@ class Pedir(models.Model):
         return f'Pedido nº {self.id_pedido}'
 
 class Trabalha(models.Model):
-    restaurante = models.ManyToManyField(Restaurante)
-    motoboy = models.ForeignKey(Motoboy, on_delete=models.CASCADE, default=0)
+    motoboy = models.ForeignKey(Motoboy, on_delete=models.CASCADE)
+    restaurante = models.ForeignKey(Restaurante, on_delete=models.CASCADE, default=1)
+    data_contratacao = models.DateField(default=timezone.now())
+    salario = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     
     def __str__(self):
-        return f'{self.motoboy}'
+        return f'{self.motoboy} - {self.restaurante}'
 
 class Entrega(models.Model):
     id_pedido = models.ForeignKey(Pedir, on_delete=models.CASCADE, default=0)
