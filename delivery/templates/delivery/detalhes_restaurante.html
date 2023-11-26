@@ -1,13 +1,13 @@
 {% extends 'delivery/base.html' %}
 
 {% block content %}
-    <h2> {{ restaurante.nomerestaurante }} </h2>
+    <h2> {{ restaurante.nome_restaurante }} </h2>
     <p>CNPJ: {{ restaurante.cnpj }}</p>
-    <h3>Pratos:</h3>
+    <h3>Cardápio:</h3>
     <section>
         {% for comida in comidas %}
-        <h4>{{ comida.nomecomida }}</h4>
-        <p>Preço: {{ comida.preco }}</p>
+        <h4>{{ comida.nome_comida }}</h4>
+        <p>R$ {{ comida.preco }}</p>
         {% endfor %}
     </section>
 {% endblock %}

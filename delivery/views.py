@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
 from delivery.models import *
 
@@ -15,3 +17,9 @@ def detalhes_restaurante(request, pk):
         'comidas': comidas
     }
     return render(request, 'delivery/detalhes_restaurante.html', context)
+
+class CadastraCliente(CreateView):
+    model = Cliente
+    template_name = 'delivery/cadastro_clientes.html'
+    fields = ('nome_cliente', 'cpf', 'endereco')
+    success_url = reverse_lazy('lista_restaurantes')

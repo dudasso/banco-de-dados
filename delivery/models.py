@@ -2,39 +2,55 @@ from django.db import models
 from django.utils import timezone
 
 class Cliente(models.Model):
-    cpf = models.AutoField(primary_key=True)
-    nomecliente = models.CharField(max_length=200)
-    endereco = models.FloatField(max_length=200)
+    cpf = models.IntegerField(primary_key=True, default=0)
+    nome_cliente = models.CharField(max_length=200)
+    endereco = models.CharField(max_length=200)
+    
+    def __str__(self):
+        return self.nome_cliente
 
 class Motoboy(models.Model):
     placa = models.AutoField(primary_key=True)
-    nomemotoboy = models.CharField(max_length=200)
+    nome_motoboy = models.CharField(max_length=200)
+    
+    def __str__(self):
+        return self.nome_motoboy
 
 class Restaurante(models.Model):
     cnpj = models.AutoField(primary_key=True)
-    nomerestaurante = models.CharField(max_length=200)
+    nome_restaurante = models.CharField(max_length=200)
+    
+    def __str__(self):
+        return self.nome_restaurante
 
 class Comida(models.Model):
-    numero = models.AutoField(primary_key=True)
-    cnpj = models.ForeignKey(Restaurante, on_delete=models.CASCADE, default='', related_name='comidas')
-    nomecomida = models.CharField(max_length=200)
+    id_comida = models.AutoField(primary_key=True)
+    restaurante = models.ForeignKey(Restaurante, on_delete=models.CASCADE, default='', related_name='comidas')
+    nome_comida = models.CharField(max_length=200)
     preco = models.FloatField(max_length=200)
-
+    
+    def __str__(self):
+        return self.nome_comida
 
 class Pedir(models.Model):
-    cpf = models.ForeignKey(Cliente, on_delete=models.CASCADE) 
-    numero = models.ForeignKey(Comida, on_delete=models.CASCADE)
+    id_pedido = models.AutoField(primary_key=True, default=0)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE) 
+    comida = models.ManyToManyField(Comida)
     hora = models.DateTimeField(default=timezone.now)
-
-class Comprar(models.Model):
-    cpf = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    cnpj = models.ForeignKey(Restaurante, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f'Pedido nº {self.id_pedido}'
 
 class Trabalha(models.Model):
-    cnpj = models.ForeignKey(Restaurante, on_delete=models.CASCADE)
-    placa = models.ForeignKey(Motoboy, on_delete=models.CASCADE)
+    restaurante = models.ManyToManyField(Restaurante)
+    motoboy = models.ForeignKey(Motoboy, on_delete=models.CASCADE, default=0)
+    
+    def __str__(self):
+        return f'{self.motoboy}'
 
 class Entrega(models.Model):
-     numero = models.ForeignKey(Comida, on_delete=models.CASCADE)
-     placa = models.ForeignKey(Motoboy, on_delete=models.CASCADE)
+    id_pedido = models.ForeignKey(Pedir, on_delete=models.CASCADE, default=0)
+    motoboy = models.ForeignKey(Motoboy, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'{self.id_pedido} - Entregador {self.motoboy}'
