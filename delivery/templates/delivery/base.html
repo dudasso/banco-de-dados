@@ -10,15 +10,15 @@
 </head>
 
 <body>
+    <header>
+        <h1><a class="text-header" href="/">Derrotado's Delivery Service</a></h1>
+    </header>
     <nav>
         <a href="/" class="cabecalho">Restaurantes</a>
         <a href="{% url 'motoboys' %}" class="cabecalho">Motoboys</a>
         <a href="{% url 'pedido' %}" class="cabecalho">Fazer Pedido</a>
         <a href="{% url 'cadastro' %}" class="cabecalho">Cadastro de Clientes</a>
     </nav>
-    <header>
-        <h1><a class="text-header" href="/">Derrotado's Delivery Service</a></h1>
-    </header>
     <main>
         {% block content %}
         {% endblock %}

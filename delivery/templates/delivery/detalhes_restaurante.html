@@ -6,8 +6,8 @@
     <h3>Cardápio:</h3>
     <section>
         {% for comida in comidas %}
-            <h4>{{ comida.nome_comida }}</h4>
-            <p>R$ {{ comida.preco }}</p>
+            <h4 class="list-cardap">{{ comida.nome_comida }}</h4>
+            <p class="list-cardap">R$ {{ comida.preco }}</p>
         {% endfor %}
     </section><br>
     <h3>Motoboys do {{ restaurante.nome_restaurante }}:</h3>
