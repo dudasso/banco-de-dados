@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 class Cliente(models.Model):
-    cpf = models.IntegerField(primary_key=True, default=0)
+    cpf = models.CharField(primary_key=True, default=0)
     nome_cliente = models.CharField(max_length=200)
     endereco = models.CharField(max_length=200)
     
