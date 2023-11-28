@@ -1,20 +1,15 @@
 {% extends 'delivery/base.html' %}
 
 {% block content %}
+    <br>
     <h2 class="list-restaurant"> {{ restaurante.nome_restaurante }} </h2>
     <p class="list-restaurant">CNPJ: {{ restaurante.cnpj }}</p>
     <h3>Cardápio:</h3>
+    <br>
     <section>
         {% for comida in comidas %}
             <h4 class="list-cardap">{{ comida.nome_comida }}</h4>
             <p class="list-cardap">R$ {{ comida.preco }}</p>
-        {% endfor %}
-    </section><br>
-    <h3>Motoboys do {{ restaurante.nome_restaurante }}:</h3>
-    <section>
-        {% for motoboy in motoboys %}
-            <h4><a class="text-restaurant" href="{% url 'detalhes_motoboy' pk=motoboy.pk %}">{{ motoboy.nome_motoboy }}</a></h4>
-            <p>Placa: {{ motoboy.placa }}</p>
         {% endfor %}
     </section>
 {% endblock %}

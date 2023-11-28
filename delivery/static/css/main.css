@@ -32,6 +32,7 @@ main {
 .list-restaurant {
     line-height: 0.4;
     height: 0.2rem;
+    text-decoration: none;
 }
 
 .list-cardap {
@@ -70,4 +71,9 @@ nav {
 .cabecalho {
     color: rgb(6, 6, 7);
     text-decoration: none;
+}
+
+.restaurantes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }

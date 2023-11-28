@@ -1,10 +1,13 @@
 {% extends 'delivery/base.html' %}
 
 {% block content %}
+    <br/>
     <section class="list-restaurant">
         <h2>Restaurantes</h2><br/>
-        {% for restaurante in restaurantes %}
-            <h3><a class="text-restaurant" href="{% url 'detalhes_restaurante' pk=restaurante.pk %}">{{ restaurante.nome_restaurante }}</a></h3>
-        {% endfor %}
+        <div class="restaurantes">
+            {% for restaurante in restaurantes %}
+                <div><h3><a class="text-restaurant" href="{% url 'detalhes_restaurante' pk=restaurante.pk %}">{{ restaurante.nome_restaurante }}</a></h3></div>
+            {% endfor %}
+        </div>
     </section>
 {% endblock %}
