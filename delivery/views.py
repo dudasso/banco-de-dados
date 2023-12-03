@@ -64,7 +64,7 @@ class UpdateCliente(UpdateView):
 class DeleteCliente(DeleteView):
     model = Cliente
     template_name = 'delivery/delete.html'
-    success_url = reverse_lazy('lista_clientes')
+    success_url = reverse_lazy('clientes')
     
 #Restaurante
 class CadastraRestaurante(CreateView):
