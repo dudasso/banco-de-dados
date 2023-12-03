@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Restaurante',
             fields=[
-                ('cnpj', models.AutoField(primary_key=True, serialize=False)),
+                ('id_restaurante', models.AutoField(primary_key=True, serialize=False)),
                 ('nome_restaurante', models.CharField(max_length=200)),
             ],
         ),

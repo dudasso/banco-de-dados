@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 class Cliente(models.Model):
-    cpf = models.CharField(primary_key=True, default=0, max_length=200)
+    cpf = models.CharField(primary_key=True, max_length=14)
     nome_cliente = models.CharField(max_length=200)
     endereco = models.CharField(max_length=200)
     
@@ -17,10 +17,10 @@ class Motoboy(models.Model):
         return self.nome_motoboy
 
 class Restaurante(models.Model):
-    cnpj = models.AutoField(primary_key=True)
+    id_restaurante = models.AutoField(primary_key=True)
+    cnpj = models.CharField(max_length=18, default="00.000.000/0001-00")
     nome_restaurante = models.CharField(max_length=200)
-    motoboys = models.ManyToManyField(Motoboy, through='Trabalha')
-    
+   
     def __str__(self):
         return self.nome_restaurante
 
@@ -41,16 +41,7 @@ class Pedir(models.Model):
     
     def __str__(self):
         return f'Pedido nº {self.id_pedido}'
-
-class Trabalha(models.Model):
-    motoboy = models.ForeignKey(Motoboy, on_delete=models.CASCADE)
-    restaurante = models.ForeignKey(Restaurante, on_delete=models.CASCADE, default=1)
-    data_contratacao = models.DateField(default=timezone.now())
-    salario = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     
-    def __str__(self):
-        return f'{self.motoboy} - {self.restaurante}'
-
 class Entrega(models.Model):
     id_pedido = models.ForeignKey(Pedir, on_delete=models.CASCADE, default=0)
     motoboy = models.ForeignKey(Motoboy, on_delete=models.CASCADE)
