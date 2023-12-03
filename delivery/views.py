@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView, DeleteView
+from delivery.forms import Pedido
 
 from delivery.models import *
 
@@ -40,7 +41,7 @@ def criar_entrega(request, id_pedido):
 class PedirComida(CreateView):
     model = Pedir
     template_name = 'delivery/pedir_comida.html'
-    fields = ('cliente', 'comidas')
+    form_class = Pedido # usa o formulário personalizado
     
     def get_success_url(self):
         return reverse_lazy('entrega', kwargs={'id_pedido': self.object.id_pedido})
@@ -82,3 +83,12 @@ class CadastraComida(CreateView):
     fields = ('restaurante', 'nome_comida', 'preco')
     success_url = reverse_lazy('lista_restaurantes')
     
+class UpdateCliente(UpdateView):
+    model = Cliente
+    fields = ('nome_cliente', 'cpf', 'endereco')
+    success_url = reverse_lazy('lista_restaurantes')
+
+
+class DeleteCliente(DeleteView):
+    model = Cliente
+    success_url = reverse_lazy('lista_restaurantes')

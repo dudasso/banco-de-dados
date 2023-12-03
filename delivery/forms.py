@@ -26,3 +26,15 @@ class Pedido(forms.ModelForm):
     class Meta:
         model = Pedir
         fields = ('cliente', 'comidas')
+        
+    cliente = forms.ModelChoiceField(
+        queryset=Cliente.objects.all(), # busca todos os clientes cadastrados
+        label="Nome do cliente", # define o rótulo do campo
+        help_text="<br>" # adiciona um <br> abaixo do campo
+    )
+        
+    comidas = forms.ModelMultipleChoiceField(
+        queryset=Comida.objects.all(), # busca todas as comidas disponíveis
+        widget=forms.CheckboxSelectMultiple, # mostra as opções em caixas de seleção
+        label="Escolha as comidas que deseja pedir" # define o rótulo do campo
+    )
