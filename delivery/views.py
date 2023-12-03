@@ -18,15 +18,18 @@ def detalhes_restaurante(request, pk):
     }
     return render(request, 'delivery/detalhes_restaurante.html', context)
 
+def detalhes_cliente(request, pk):
+    cliente = get_object_or_404(Cliente, pk=pk)
+    return render(request, 'delivery/detalhes_cliente.html', {'cliente': cliente})
+
 class CadastraCliente(CreateView):
     model = Cliente
     template_name = 'delivery/cadastro_clientes.html'
     fields = ('nome_cliente', 'cpf', 'endereco')
     success_url = reverse_lazy('lista_restaurantes')
     
-def detalhes_motoboy(request, pk):
-    motoboy = get_object_or_404(Motoboy, pk=pk)
-    return render(request, 'delivery/detalhes_motoboy.html', {'motoboy': motoboy})
+    def get_success_url(self):
+        return reverse_lazy('detalhes_cliente', kwargs={'pk': self.object.pk})
 
 def criar_entrega(request, id_pedido):
     pedido = get_object_or_404(Pedir, id_pedido=id_pedido)
@@ -38,6 +41,7 @@ class PedirComida(CreateView):
     model = Pedir
     template_name = 'delivery/pedir_comida.html'
     fields = ('cliente', 'comidas')
+    
     def get_success_url(self):
         return reverse_lazy('entrega', kwargs={'id_pedido': self.object.id_pedido})
     
@@ -62,13 +66,15 @@ class CadastraRestaurante(CreateView):
     model = Restaurante
     template_name = 'delivery/cadastro_restaurante.html'
     fields = ('cnpj', 'nome_restaurante', 'endereco')
-    success_url = reverse_lazy('lista_restaurantes')
+    
+    def get_success_url(self):
+        return reverse_lazy('detalhes_restaurante', kwargs={'pk': self.object.pk})
     
 class CadastraMotoboy(CreateView):
     model = Motoboy
     template_name = 'delivery/cadastro_motoboy.html'
     fields = ('nome_motoboy', 'cpf')
-    success_url = reverse_lazy('detalhes_motoboy')
+    success_url = reverse_lazy('motoboys')
     
 class CadastraComida(CreateView):
     model = Comida

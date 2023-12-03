@@ -7,7 +7,7 @@
     {% for comida in comidas %}
         <p>{{ comida.nome_comida }} - {{ comida.restaurante }}</p>
     {% endfor %}
-    <h4><a class="text-restaurant" href="{% url 'detalhes_motoboy' pk=motoboy.pk %}">Entregador - {{ motoboy.nome_motoboy }}</a></h4>
+    <h4>Entregador - {{ motoboy.nome_motoboy }}</h4>
     <p>Placa: {{ motoboy.placa}}</p><br>
     <p>Seu pedido chega em um instante.</p><br>
 

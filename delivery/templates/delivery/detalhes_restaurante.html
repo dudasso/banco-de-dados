@@ -2,14 +2,13 @@
 
 {% block content %}
     <br>
-    <h2 class="list-restaurant"> {{ restaurante.nome_restaurante }} </h2>
-    <p class="list-restaurant">id_restaurante: {{ restaurante.id_restaurante }}</p>
-    <h3>Cardápio:</h3>
-    <br>
+    <h2 class="list-restaurant"> {{ restaurante.nome_restaurante }} </h2><br>
+    <p class="list-restaurant">Endereço: {{ restaurante.endereco }}</p>
+    <p class="list-restaurant">CNPJ: {{ restaurante.cnpj }}</p><br>
+    <h3>Cardápio:</h3><br>
     <section>
         {% for comida in comidas %}
-            <h4 class="list-cardap">{{ comida.nome_comida }}</h4>
-            <p class="list-cardap">R$ {{ comida.preco }}</p>
+            <h4 class="list-cardap">{{ comida.nome_comida }} - R$ {{ comida.preco }}</h4>
         {% endfor %}
     </section>
 {% endblock %}
