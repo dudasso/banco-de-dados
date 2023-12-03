@@ -7,6 +7,9 @@
         {% for motoboy in motoboys %}
             <h3>{{ motoboy }}</h3>
             <p>Placa: {{ motoboy.placa }}</p><br>
+            <a href="{% url 'update_motoboy' pk=motoboy.pk %}">Editar</a>
+            <a href="{% url 'delete_motoboy' pk=motoboy.pk %}">Deletar</a>
         {% endfor %}
+        <br><br><br><br><a href="{% url 'cadastro_motoboy' %}">Cadastrar Motoboy</a>
     </section>
 {% endblock %}

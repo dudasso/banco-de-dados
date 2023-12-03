@@ -6,8 +6,11 @@
         <h2>Restaurantes</h2><br/>
         <div class="restaurantes">
             {% for restaurante in restaurantes %}
-                <div><h3><a class="text-restaurant" href="{% url 'detalhes_restaurante' pk=restaurante.pk %}">{{ restaurante.nome_restaurante }}</a></h3></div>
+                <div>
+                    <h3><a class="text-restaurant" href="{% url 'detalhes_restaurante' pk=restaurante.pk %}">{{ restaurante.nome_restaurante }}</a></h3>
+                </div>
             {% endfor %}
         </div>
+        <br><br><a href="{% url 'cadastro_restaurante' %}">Cadastrar Restaurante</a>
     </section>
 {% endblock %}

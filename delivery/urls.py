@@ -13,5 +13,13 @@ urlpatterns = [
     path('pedido', views.PedirComida.as_view(), name='pedido'),
     path('pedido/<int:id_pedido>', views.entrega, name='entrega'),
     path('motoboys', views.lista_motoboys, name='motoboys'),
-    path('cadastros', TemplateView.as_view(template_name='delivery/cadastros.html'), name='cadastros')
+    path('clientes', views.lista_clientes, name='clientes'),
+    path('cliente/<int:pk>/update/', views.UpdateCliente.as_view(), name='update_cliente'),
+    path('restaurante/<int:pk>/update/', views.UpdateRestaurante.as_view(), name='update_restaurante'),
+    path('motoboy/<int:pk>/update/', views.UpdateMotoboy.as_view(), name='update_motoboy'),
+    path('comida/<int:pk>/update/', views.UpdateComida.as_view(), name='update_comida'),
+    path('cliente/<int:pk>/delete/', views.DeleteCliente.as_view(), name='delete_cliente'),
+    path('restaurante/<int:pk>/delete/', views.DeleteRestaurante.as_view(), name='delete_restaurante'),
+    path('motoboy/<int:pk>/delete/', views.DeleteMotoboy.as_view(), name='delete_motoboy'),
+    path('comida/<int:pk>/delete/', views.DeleteComida.as_view(), name='delete_comida'),
 ]

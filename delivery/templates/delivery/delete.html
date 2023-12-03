@@ -1,0 +1,11 @@
+{% extends "delivery/base.html" %} 
+
+{% block content %}
+<h2>Deletar {{object}}</h2>
+<p>Tem certeza que deseja deletar {{object}}?</p>
+<form method="post"> 
+  {% csrf_token %}
+  {{ form.as_p }} 
+  <button type="submit">Confirmar</button>
+</form>
+{% endblock %}

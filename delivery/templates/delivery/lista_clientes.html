@@ -1,0 +1,14 @@
+{% extends 'delivery/base.html' %}
+
+{% block content %}
+    <br/>
+    <section class="list-restaurant">
+        <h2>Clientes do Derrotado's Delivery</h2><br/>
+        {% for cliente in clientes %}
+            <h3>{{ cliente }}</h3>
+            <a href="{% url 'update_cliente' pk=cliente.pk %}">Editar</a>
+            <a href="{% url 'delete_cliente' pk=cliente.pk %}">Deletar</a>
+        {% endfor %}
+        <br><br><br><br><a href="{% url 'cadastro_cliente' %}">Cadastrar Cliente</a>
+    </section>
+{% endblock %}

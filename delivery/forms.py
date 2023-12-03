@@ -1,7 +1,6 @@
 from django import forms
 from .models import *
 
-
 class CadastraCliente(forms.ModelForm):
     class Meta:
         model = Cliente

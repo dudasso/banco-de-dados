@@ -5,10 +5,15 @@
     <h2 class="list-restaurant"> {{ restaurante.nome_restaurante }} </h2><br>
     <p class="list-restaurant">Endereço: {{ restaurante.endereco }}</p>
     <p class="list-restaurant">CNPJ: {{ restaurante.cnpj }}</p><br>
+    <a href="{% url 'update_restaurante' pk=restaurante.pk %}">Editar</a>
+    <a href="{% url 'delete_restaurante' pk=restaurante.pk %}">Deletar</a>
     <h3>Cardápio:</h3><br>
     <section>
         {% for comida in comidas %}
             <h4 class="list-cardap">{{ comida.nome_comida }} - R$ {{ comida.preco }}</h4>
+            <a href="{% url 'update_comida' pk=comida.pk %}">Editar</a>
+            <a href="{% url 'delete_comida' pk=comida.pk %}">Deletar</a>
         {% endfor %}
+        <br><br><a href="{% url 'cadastro_comida' %}">Cadastrar Comida</a>
     </section>
 {% endblock %}
