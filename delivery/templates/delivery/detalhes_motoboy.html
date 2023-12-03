@@ -3,9 +3,4 @@
 {% block content %}
     <h2 class="list-restaurant"> {{ motoboy }} </h2>
     <p class="list-restaurant">Placa: {{ motoboy.placa }}</p><br>
-
-    <h3>Restaurantes em que trabalha:</h3>
-    {% for restaurante in restaurantes %}
-        <h4><a class="text-restaurant" href="{% url 'detalhes_restaurante' pk=restaurante.pk %}">{{ restaurante.nome_restaurante }}</a></h4>
-    {% endfor %}
 {% endblock %}

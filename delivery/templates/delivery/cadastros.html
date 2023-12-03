@@ -1,0 +1,12 @@
+{% extends 'delivery/base.html' %}
+
+{% block content %}
+    <br/>
+    <section class="list-restaurant">
+        <h2>Cadastros</h2><br/>
+        <h2><a class="text-restaurant" href="{% url 'cadastro_cliente' %}">Cadastro de Clientes</a></h2>
+        <h2><a class="text-restaurant" href="{% url 'cadastro_restaurante' %}">Cadastro de Restaurantes</a></h2>
+        <h2><a class="text-restaurant" href="{% url 'cadastro_motoboy' %}">Cadastro de Motoboys</a></h2>
+        <h2><a class="text-restaurant" href="{% url 'cadastro_comida' %}">Cadastro de Comidas</a></h2>
+    </section>
+{% endblock %}

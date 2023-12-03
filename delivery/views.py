@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
 from delivery.models import *
@@ -12,11 +12,9 @@ def lista_restaurantes(request):
 def detalhes_restaurante(request, pk):
     restaurante = get_object_or_404(Restaurante, pk=pk)
     comidas = restaurante.comidas.all()
-    motoboys = restaurante.motoboys.all()
     context = {
         'restaurante': restaurante,
         'comidas': comidas,
-        'motoboys': motoboys,
     }
     return render(request, 'delivery/detalhes_restaurante.html', context)
 
@@ -28,12 +26,7 @@ class CadastraCliente(CreateView):
     
 def detalhes_motoboy(request, pk):
     motoboy = get_object_or_404(Motoboy, pk=pk)
-    restaurantes = motoboy.restaurante_set.all()
-    context = {
-        'motoboy': motoboy,
-        'restaurantes': restaurantes,
-    }
-    return render(request, 'delivery/detalhes_motoboy.html', context)
+    return render(request, 'delivery/detalhes_motoboy.html', {'motoboy': motoboy})
 
 def criar_entrega(request, id_pedido):
     pedido = get_object_or_404(Pedir, id_pedido=id_pedido)
@@ -64,3 +57,22 @@ def entrega(request, id_pedido):
 def lista_motoboys(request):
     motoboys = Motoboy.objects.all()
     return render(request, 'delivery/lista_motoboys.html', {'motoboys': motoboys})
+
+class CadastraRestaurante(CreateView):
+    model = Restaurante
+    template_name = 'delivery/cadastro_restaurante.html'
+    fields = ('cnpj', 'nome_restaurante', 'endereco')
+    success_url = reverse_lazy('lista_restaurantes')
+    
+class CadastraMotoboy(CreateView):
+    model = Motoboy
+    template_name = 'delivery/cadastro_motoboy.html'
+    fields = ('nome_motoboy', 'cpf')
+    success_url = reverse_lazy('detalhes_motoboy')
+    
+class CadastraComida(CreateView):
+    model = Comida
+    template_name = 'delivery/cadastro_comidas.html'
+    fields = ('restaurante', 'nome_comida', 'preco')
+    success_url = reverse_lazy('lista_restaurantes')
+    
