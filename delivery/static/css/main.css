@@ -49,17 +49,17 @@ button {
 }
 
 form {
-    width: 12rem;
-    line-height: 1.20;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 400px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
 }
+
 
 nav {
     background-image: url('https://lh3.googleusercontent.com/fife/AK0iWDxlA3M6p0muECn6TmuznPYu44VJncWp6-ZErAtsYYXuCp1ch8NW-O-A5Recy_8O5jQdZzGT2CNPTtNJZmAhiGovveSvUoPLIX55Sy3L-Z_BeY_ltRZEVDTTlGG2-X3Gfe_6Bs9naK2EspTdINggETeI5rOss4DzxiAaTjB8-fJx8qtMIhkpuiGPlnkIHXP_oEgvFCoLPYzZqBeT3P4T_TeNuTqNODHNDZuMRUqn8YfHWLgpbpAOdoNYKZ1Ke__Je2Wzh4xkGqguB25a-sDTVgCDrczUkDl-90xgN4bZST5EuRX2soKbVUcPixwPkWfNdR9fpg3GWp_tp6ip4WPBrH06x2Gw-SukGPkJHgos_PfWT9WoLyVHeBpdhUgMHJzAII9tIBMYnG-cknoRG-efvp-LjrpvFiOGI50u8tgOuOrevtWDKRShJRGzYQ-lo_3k2iPpSJ4Kca2e2nCGD1trXqy9ljr5-EFuvSsg8xRGda35e3dQ-w04AtQ6s7cFND3RIptVu3-oHY0nIS8wou3S4pVZAGsJiNVAKjOoe44WiWxS8XVfH-mrmQTMZFLv_jVNHEeB156PvWciJCamobsWRsqoxNBOU42qEXO2hY5g8QbS-Sn_Lt1tA_3ERI9iKcg7wB7vxBbDx1u-qE67rL8pUk6HaAkla-JUiO2Lw5ZPTuEmVjObkrkuRcjtmNYMiMXd-lLf5DG0FDOXawZP5MQwEhClMd6X8wwdjP0Hii6oX2xxXitxhNJdGM2Q0XjNESnBU1ik-SvgZacxoORgq55mCtWEU-204m-unO3Dhs7RiKMCOiwqmeAi48bECdFlvZNTVXej1SOqHIy6hvQgIBEhJCYRywLS7G2aoY8a84nR4q-EI-lAuabKjdvZpjeDxn8YY2zj3wfIwcGcRqSbVvIYxK_rhBt3-J7LYEyY1-NoS70BGlO8EXhCGrNA0aeeXyxJcFClMN2frOuxMxEhm8aYw2EFG-J0cuiL9VUEQqXfwuwd_m8CWxWldsqAJmfyTv0IsfeAHSMMcBg5zOaKaL6oK21DqEw5aVF5FLmSScQv98FU5qw4XZPcEkhDXhymLJsvh5Zkyaab-f48fHqcf2sfJaQwN_JqQEQ-7GDB7SKjULS8NogEropCWhHU-j6nJwYBe2-rzs_htPNfw6Q-9xU0OveiEfy3mBcNB9FtDYCzQyBWBnN4EaPoWTrNIxrSN6St62O2JhttckplgL_zcWZ7ghw5GUAPdQuISxQk-yNwjTXY9jhNcD6LP9m-rbSLyyqe0Oe8nJHuYSEuQ8e4G3JdQo7VJUItXXjbbuuy1seZ9AknhCjh6jaX4FOtNoDEV7v7vffIYpjDZm0KKj87SaPA3bW95kb9tUDo7K-Z0Xqc6V7hgZatECjKkG-6N2-4_OhK2OXjfrcosHxL8Ni4DyFH8OY7qX274pk6A-4lpeV3CsDYgnlg4jCUYs17Rl28ekDZ3gkwIssxYR3eJSqeAuppQlIOXs7SSEhMPR20VDocXsvEatcprevFH9BeraOGTX_pafZPBxi3QQKcHHXswb__6mSwSRAq1RlS4w1e7UhJSVajnsjXRjxDUG52VPgnqQgNx8r1AVBBrCTeDPu7S5csjtts9Rilmuny54I=w1325-h658');
     background-repeat: repeat;
-    background-position:  10px;
+    background-position: 10px;
     background-size: 300px 300px;
     height: 30px;
     display: flex;
@@ -73,7 +73,44 @@ nav {
     text-decoration: none;
 }
 
-.restaurantes {
+.listagem {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
 }
+
+.btn {
+    border-radius: 2px;
+    background-color: rgb(80, 44, 44);
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+}
+
+.pessoas {
+    height: 100px;
+    width: 200px;
+    border: 2.2px;
+    border-style: outset;
+    border-color: #000;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    
+}
+
+.img_ed {
+    max-width:16px; 
+    max-height:16px;
+}
+
+.cardapio {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+

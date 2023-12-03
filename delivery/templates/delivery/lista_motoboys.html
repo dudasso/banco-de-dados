@@ -4,12 +4,18 @@
     <br/>
     <section class="list-restaurant">
         <h2>Motoboys do Derrotado's Delivery</h2><br/>
-        {% for motoboy in motoboys %}
-            <h3>{{ motoboy }}</h3>
-            <p>Placa: {{ motoboy.placa }}</p><br>
-            <a href="{% url 'update_motoboy' pk=motoboy.pk %}">Editar</a>
-            <a href="{% url 'delete_motoboy' pk=motoboy.pk %}">Deletar</a>
-        {% endfor %}
+        <div class="listagem">
+                {% for motoboy in motoboys %}
+                <div class="pessoas">
+                    <h3>{{ motoboy }}</h3>
+                    <p>Placa: {{ motoboy.placa }}</p><br>
+                    <a href="{% url 'update_motoboy' pk=motoboy.pk %}"><img class="img_ed" src="https://lh3.googleusercontent.com/fife/AK0iWDzTGYWS_5Vvi25i3Fpia4yBQLbzFYgpjigCtiskpWEe65J-FfQmzokxwDnLNp8hB0TF98UtqVeVc0FY3TqNx3vnUbIBMFXdIdseXMDrtQzrZMI54rEIrHZ6ilpEm_gX_hB7lvjGhW9tkoG61Nib3fHQ_RQ2MsTe4p9APZYRnnfjC09e0JPrcQ2LgV2dbTkb4Rt1oRNxdCynJ8wBrWY9cSRfpk9Mg0EW_z7t_bi1l6PdIN8wsa-TVq5JWuRvNOzTCYctU5sa_e59Q4QDpKD-ttLu_f-gpMZ4nV561MieguRrL2iUmie4i6PrjuElUKawEyEJYhuWjw9_R6FiZnnYb7NzGu4rM02sfYLRFL6D70NHGiiSZ98WxTQ4HAq0WzSKOy8N2usXcrWL45nS0RW5F3icweb8HrEO-AB8fpB_XR4oY1QivYr6mTM_Z6I9f2Ox7LOUrfA7JCVIdDPS032Rtd5vYbsz7eFkp6YBxKvrOklfJqd_Q8o0tO3Bub_Nsmg5GVZLCELOzK6deUaL0oocojsDKtbwKWvKbKUjELa9JDniE3_Unpei4BJ-1UoX4ctJdeaJZIr7zitMUs09ht1sqS-CqW3YQisxfzWe3oxaxKsCa6z8cS6DIU0q6ZWEuNHQ_9qkdhRfuEds22OJnSernRvuT7coKvWhJ7GcElPFRpCou6wlvkUkwyb_gXqyFvtlJzamYwQLJl-HJep_Cb4RIxoHB2Egx7_67uql_qNOZKP-X-Rklow-GvO3AVXmGKcdoJfTyYgn17b7XtUd3yrj0vixEWIx5O4DrTOg1zUZhdAAIzR44HaqM7Sh_KuGXcERnpNba3mX8DgJTrOx7w3uYc_kdE1d_Mv2D1ryGyHm_-MgOoutjE167b10n8QLyUnY5El4SUeZYrsSDptU0RhpWcLeCEXRQ8PYo6ZpgN-EOIc6Dj_npS5sA2r1T2PjG_AkZHgYpo3eE3FKIo-5edGeEQTJ0OSJGzwj6a7q3n_PZTYIBfGv3uKBUPDSgj9SYLv6is7cq8CM0G8evY25zJrRHdURw2bwLYQPQTvj-xvDBAHD8nGVR7vER8DQtaAtVFPZUqeMbvYvSTvoqPKpn9Jl4AI4Z4rnaL6-TICi-gOy_bwpCldxLxuDOM8m-ANeOz3l_UAcRPkBSDsUgGbTtvd5jtqNwtXH_5Rxxif2XnSu71EDpjPYik_1fiO0ysF2LXiCR8DFU-_6ZkWAG5k7mmRx2K3ZR4LrzUDMcr4cA6p-OySNC7dtYRrt-IfUhN9xI_0Y3i3xtruIIxG2woQrcFWu7UQM36SfDvYepyT3zYNka4K93f9wt3k_RiycCoYYu46e3mlb_cAvAlaYF_JexEkF4dAadzx2rfJxdLWrOOuUuDvUSm10Pu4E-D7eA-gy7NgoiQJKyyHMToea2UIv8cNUBFm5HKv0gdC31ZtKTJWCAH5tpH_1nley2fCqlWArcNhBNy-JearHY1GdNkq5JCVILJT0iroqFChs-YRSo0ULARimep4FkT_xa_HLeCMbSMfNB7pkD5OuiYEtCsJ-3c6EXZ5_oNvLt8A6ZirDpjA2DE9UyJWpZ1yRh_fBPAxmGKvmcrfTv7r4ww2vxT-5bR4drVKnCNXh_pMyKVA=w1325-h658"></a>
+                    <a href="{% url 'delete_motoboy' pk=motoboy.pk %}"><img class="img_ed" src ="https://lh3.googleusercontent.com/fife/AK0iWDyGB-FAjvmIjDzevlbNovjm5r1DEAnIlP72f3GY8i1ksYMJVHJR-1sO4yILdoGAyzHCH-lCVNGTkv767d0-TmW0T3I-zVWFIsE6_QcO_187-0CVAzhQAW8uPWOVZVOSdrZwfjB9y4Uo901bsI_KyJ020Shz_VDUmSd0jSNVO9jx64axoi_TX4i-TstBrZjLhxg3ScDS3qz_gZ3aHo2B_LSduGiVPlKMQ3lBhrRHFQQP1PK-A3TDvjwLKstmlJ_Q0IwrhfSO56fu8uei9PV7Gp6482d33LbU6UwwjgWNxKKXSIqYTctiEhEtHRh1mGjwsPYbEMlT1ORmHZM4wD1NYBFt62OvUttzqlGm6KfvkQKnFxbTj-ab0OmSRlERgNhuG4YKGEAOJdbEBOqeTX8TGK3uW2LtUFyS_ZfMdGurjfTxgrBp-2U0tW53YfBYffJPsBQE9EkYGNIIkD6Hd9vpMjJkH0J-ldD0WRXMnBDy5yTIid68AP1cVHrNA2O6NXDdUMY4J1xFWLsrnUZCkJ0uuibdgD9mj2fam91ltB4Ns-NcOSCsfXYFQsmmpinPb1al20aiffUC6ZbEOREfAYM5O-oVuk-nJN_INdjNN1yTrxtqYQt8Q_9uq_eWU-diafOL9QOAQDk2KX4AKlWRZz00F_ruF80vXWvDTbXuSo60UUfdYxCDG4DWuScU9LdRKyymxGUzbVEC9KyNrFN8-jm8hd3xECqAJrhk5nu7S9zjk55lcgx9F-BWj6e-5Er4GrUJ5L2_BvZcpJcNhcLvCvzTxq73Un3gxWNYOF3BgzT3D37Jcu0msN8aYkufZs9HZpiF2Q-670m56Y1O5D1YW3Lc7fgtmxhhAn4UrPitPGeF3un5qWz4ry0TfNHFA19FY0hINNHdYBmeHN1YVP2dZ7LmKV9AHFFzuzTH-ZLa3Sg0mZ9BI61g9aIccJY_eDbhnt0UJA1zGH7XY24Y3hXixB2XI8_Fgdaex437ZUrtZICpERasByfLP_bNnRB9zBetdKqPBIbvxMSaiqo0B_XE1N8PH2f2wUt5jChjr5Zww3V9Fvjzwsw9Re0z-sKuZjic0UspoAl4AIpNEwsPuppIcx0ydmUrWkKBVgJhRhz9S6V5DQGMTKeRK0cHvDv2bs7CMTKmDxhomnnv0M1rkKQcpHaP4kSKgMKueHlIpSyKrIuWBj2jefam79TxK5XQWa-KoiKgGybCRNDYopddg9Hyywchne80RMnyGPRwo-n__eUZsH4ClwNyi4_YYVaTtEJPyXWG8q5c8-brlKj_E-ZmXeHKg9bGUfWUKkgZ2q7Pdv6XuJM915dmUqiEevE_xk5D879gvtX4_wVkGrNKA_udNQP4kWRrUSWQ-rcUh3vBkmatf5YMShKQ2NGwd8bQ7ShGnwBciqqEdEgQe6wIERBX12G9UCsIa_N1Xhme29Q69XcyNnitXOjab_UmugqrEFnhDjTFYYxd8sjLYXAGLY2Vk9aKoExc_8FH9SJjXf85T4DdDpXvJ5S9qWzZMOUfBL8uF58uvUv4XxbVBtgsVSdLZqGFYduxllqXtsxIaDFYJSsWb2DQmVwhx8Wu_f_tBFpttOiXP3qPleBjXxBUkvYWRhMLsUmadxZtGoiU=w1325-h620"></a>
+                            
+                </div>
+                {% endfor %}
+        </div>
+                
         <br><br><br><br><a href="{% url 'cadastro_motoboy' %}">Cadastrar Motoboy</a>
     </section>
 {% endblock %}
